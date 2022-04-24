@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+          <div class="title login">Login Form</div>
+          <div class="title signup">Signup Form</div>
+        </div>
+        <div class="form-container">
+          <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Signup</label>
+            <div class="slider-tab"></div>
+          </div>
+          <div class="form-inner">
+            <form action="/login" class="login" method="POST">
+              <div class="field">
+                <input name="email" type="text" placeholder="Email Address" required>
+              </div>
+              <div class="field">
+                <input name="password" type="password" placeholder="Password" required>
+              </div>
+              <div class="pass-link"><%= title %></div>
+              <div class="pass-link"><a href="#">Forgot password?</a></div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Login">
+              </div>
+              <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+            </form>
+            <form action="/signup" class="signup" method="POST" enctype="multipart/form-data">
+              <div class="field">
+                <input id="name" name="username" type="text" placeholder="Name" required>
+              </div>
+              <div class="field">
+                <input id="email" name="email" type="text" placeholder="Email Address" required>
+              </div>
+              <div class="field">
+                <input id="password" name="password" type="password" placeholder="Confirm password" required>
+              </div>
+              <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" 
+                       name="image" value="" required>
+            </div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input id="submit" type="submit" value="Signup">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  <script src="../js/jquery.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
