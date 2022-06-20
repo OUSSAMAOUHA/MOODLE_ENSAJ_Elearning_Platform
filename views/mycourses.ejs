@@ -1,0 +1,83 @@
+<%- include('header.ejs') %>
+
+<body>
+    
+    <% if(user.role == "prof"){ %>
+      <% if(courses.length == 0){ %>
+        <h1 style="padding-top: 7em; text-align: center;">Vous ne suivez aucun cours</h1>
+        <div style="width: 100%; text-align: center;">
+          <a href="/courses" class="btn btn-primary">Courses</a>
+        </div>
+      <% } else{ %>
+      <h1 class="site-logo" style="text-align: center; padding-top: 6em;">Mes Courses:</h1>
+      <div style="padding-top: 2em;" class="d-flex flex-row align-items-center justify-content-around flex-wrap">
+          <% courses.forEach(function(course) { %>
+              <div class="card p2" style="width: 20%;">
+                  <img src="/files/<%=course.img%>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-danger">Supprimer</a>
+                    <a href="/courses/<%= course.id %>" class="btn btn-success">Modify</a>
+                    
+                  </div>
+              </div>
+          <% }); %> 
+      </div>
+      <% } %>
+    <% } else{ %>
+      <% if(courses.length == 0){ %>
+        <h1 style="padding-top: 7em; text-align: center;">Vous ne suivez aucun cours</h1>
+        <div style="width: 100%; text-align: center;">
+          <a href="/courses" class="btn btn-primary">Courses</a>
+        </div>
+     <% } else{ %>
+      <h1 class="site-logo" style="text-align: center; padding-top: 6em;">Mes Courses:</h1>
+      <div style="padding-top: 2em;" class="d-flex flex-row align-items-center justify-content-around flex-wrap">
+          <% courses.forEach(function(course) { %>
+              <div class="card p2" style="width: 20%;">
+                  <img src="/files/<%=course.img%>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/generalcourse/<%= course.id %>" class="btn btn-primary">Entrez</a>
+                    
+                  </div>
+              </div>
+          <% }); %> 
+      </div>
+      <% } %>
+    <% } %>
+    
+    
+</body>
+	
+
+
+
+
+
+
+
+
+
+
+  <script>
+   function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>

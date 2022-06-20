@@ -1,0 +1,72 @@
+<%- include('header.ejs') %>
+<body>
+    <header class="topbar">
+        <a href="#" class="topbar-logo" >Moodle ENSAJ</a>
+    </header>
+    <div class="three">
+      <h1>Titre du Cours:</h1>
+    </div>
+    <div class="container  site">
+
+        <main class="main">  
+                  <section id="vert-nav">
+                    <h3>Liste des chapitres:</h3>
+                     <nav role='navigation'>
+                      <ul class="topmenu">
+                        <% chaptres.forEach(function(chaptre) { %>
+                            <li><a href="#0"> <%= chaptre.title %></a>
+                                <ul class="submenu">
+                                    <% chaptre.files.forEach(function(file) { %>
+                                        <li> <a href="/generalcourse/pdf/<%= file.name %>"><%= file.title %></a></li>
+                                    <% }); %> 
+                                    <% chaptre.video.forEach(function(file) { %>
+                                        <li> <a href="/generalcourse/vid/<%= chaptre.id %>/<%= file.title %>"><%= file.title %></a></li>
+                                    <% }); %> 
+                                </ul>
+                                </li>
+                         <% }); %> 
+                        
+                      </ul>
+                    </nav>  
+                  </section>
+        
+        </main>
+        
+
+        <aside class="aside">
+            <article class="card">
+                <header class="card-header">
+                    <img src="/files/<%= course.img %>" class="image_cours"  >
+                    <div class="card-title"><%= course.title %></div>
+                    <div class="card-time"><%= course.filiere %></div>
+                    <div class="card-time"> <%= course.semester %></div>
+                </header>
+
+            </article>
+
+            
+            <div class="sidebar-title">Prof du cours:</div>
+                <center><div class="prof">
+                  <img class="prof-avatar" src="/files/<%= creator.img %>">
+                  <div class="prof-body" >
+                      <a href="#" class="prof-name"><%= creator.username %></a>
+                      <a href="#" class="prof-name">Prof a l'ENSAJ</a>
+
+                  </div>
+              </div></center>
+
+
+            </div>
+
+        </aside>
+
+
+
+
+
+     </div>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+     <script  src="/js/scriptChapitres.js"></script>
+
+</body>
+</html>

@@ -4,15 +4,47 @@ const bcrypt = require("bcryptjs")
 
 
 var chapterSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
-  },file:[
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  files:[
     {
-      data: Buffer,
-      contentType: String
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
+      },
+      name: {
+        type: String,
+        required: true
+      }
     }
   ],
+  video: [
+    {
+      
+      title: {
+        type: String,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true
+      },
+      name: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 }, {timestamps: true});
 
 

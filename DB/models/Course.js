@@ -4,23 +4,33 @@ const bcrypt = require("bcryptjs")
 
 
 var courseSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
-    required: true,
   },
   description: {
     type: String,
   },
-  chapter: [{
-    name: {
-        type: String,
-    }
-  }],
+  visibilite: {
+    type: String
+  },
+  filiere: {
+    type: String
+  },
+  semester: {
+    type: String
+  },
+  language: {
+    type: String
+  },
+  chaptre: [{type: mongoose.Schema.Types.ObjectId, ref: 'Chapter'}],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Chapter'}],
   img:
     {
-        data: Buffer,
-        contentType: String
+        type: String
     },
+  creator_id: {
+    type: String
+  }
 }, {timestamps: true});
 
 

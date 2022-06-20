@@ -1,0 +1,105 @@
+
+<%- include('header.ejs') %>
+
+
+<body>
+  
+<!-- partial:index.partial.html -->
+<div class="container" style="padding-top: 10em;">
+  <div class="row">
+    <div class="col-md-4">
+      <% if(chaptre_id != 0){ %>
+        <h3>Modifier Chapitre</h3>
+        <form id="addUser" action="/editchaptre/<%= chaptre_id %>/<%= course.id %>" method="POST">
+          <div class="form-group">
+            <input class="form-control" type="text" name="title" value="<%= chaptre.title %>" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="description"  value="<%= chaptre.description %>" required>
+          </div>
+          <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+        </form>
+        
+          <h4 style="text-align: left; padding-top: 1em;">Modifier Parties</h4>
+          <% chaptre.files.forEach(function(file) { %>
+            <div style="width: 100%;" class="d-flex">
+              <h5 style="width: 70%;"><i class="fa-solid fa-angle-right"></i><%= file.title %></h5>
+              <div style="width: 30%;">
+                <i class="icon-remove" style="cursor: pointer; padding-left: 5em;"></i>
+              </div>
+            </div>
+          <% }); %>
+          <% chaptre.video.forEach(function(video) { %>
+            <div style="width: 100%;" class="d-flex">
+              <h5 style="width: 70%;"><i class="fa-solid fa-angle-right"></i><%= video.title %></h5>
+              <div style="width: 30%;">
+                <i class="icon-remove" style="cursor: pointer; padding-left: 5em;"></i>
+              </div>
+            </div>
+          <% }); %>
+        
+      <% } else{ %>  
+        <h3>Ajouter Chapitre</h3>
+        <form id="addUser" action="/addchaptre/<%= course.id %>" method="POST">
+          <div class="form-group">
+            <input class="form-control" type="text" name="title" placeholder="Titre" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="description"  placeholder="Description" required>
+          </div>
+          <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+        </form>
+     <% } %>
+    </div>
+    <div class="col-md-8">
+      <h3>Chapitres</h3>
+      <table id="userTable" class="table table-striped">
+        <tr>
+          <th>Numero</th>
+          <th colspan="10">Action</th>
+        </tr>
+        <% chaptres.forEach(function(chaptre) { %>
+          <tr id="user-${user.id}">
+            <td class="userData" numero="titre"><%= chaptre.title %></td>
+            <td >
+                <a href="/addpdf/<%= chaptre.id %>/<%= course.id %>" ><button style="width: 40%;" class="btn btn-warning form-control"  >Pdf</button></a>
+                <a href="/addvid/<%= chaptre.id %>/<%= course.id %>"><button style="width: 40%;" class="btn btn-warning form-control"  >Vid</button></a>
+
+            </td>
+            <td align="center">
+                <form action="/course/edit/<%= chaptre.id %>/<%= course.id %>"><button class="btn btn-success form-control" type="submit" >EDIT</button></form>
+            </td>
+            <td align="center">
+                <a href="/deletechaptre/<%= chaptre.id %>/<%= course.id %>"><button class="btn btn-danger form-control" >DELETE</button></a>
+            </td>
+        </tr>
+        <% }); %> 
+        
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+<script>
+  function myFunction() {
+ document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+ if (!event.target.matches('.dropbtn')) {
+   var dropdowns = document.getElementsByClassName("dropdown-content");
+   var i;
+   for (i = 0; i < dropdowns.length; i++) {
+     var openDropdown = dropdowns[i];
+     if (openDropdown.classList.contains('show')) {
+       openDropdown.classList.remove('show');
+     }
+   }
+ }
+}
+</script>

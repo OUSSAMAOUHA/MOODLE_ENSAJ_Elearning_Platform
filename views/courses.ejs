@@ -1,0 +1,135 @@
+<%- include('header.ejs') %>
+ 
+ 
+
+ <title>Moodle Ensaj</title>
+ </head>
+<body>
+    
+  <div  style="padding-top: 10em; width: 50%; margin: auto auto;">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Filiere</label>
+      <select type="email" class="form-control" id="filiere" aria-describedby="emailHelp" placeholder="Enter email" style="height: 2em;">
+              <% if(filiere == "2ite"){ %>
+                <option value="2ite" selected>2ITE</option>
+                <% } else{ %>  
+                  <option value="2ite">2ITE</option>
+                <% } %>
+                <% if(filiere == "cp"){ %>
+                  <option value="cp" selected>CP</option>
+                  <% } else{ %>  
+                    <option value="cp">CP</option>
+                  <% } %>
+                  <% if(filiere == "isic"){ %>
+                    <option value="isic" selected>ISIC</option>
+                    <% } else{ %>  
+                      <option value="isic">ISIC</option>
+                    <% } %>
+                    <% if(filiere == "gee"){ %>
+                      <option value="gee" selected>GEE</option>
+                      <% } else{ %>  
+                        <option value="gee">GEE</option>
+                      <% } %>
+                      <% if(filiere == "gi"){ %>
+                        <option value="gi" selected>GI</option>
+                        <% } else{ %>  
+                          <option value="gi">GI</option>
+                        <% } %>
+                        <% if(filiere == "gc"){ %>
+                          <option value="gc" selected>GC</option>
+                          <% } else{ %>  
+                            <option value="gc">GC</option>
+                          <% } %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Semester</label>
+      <select type="password" class="form-control" id="semester" placeholder="Password" style="height: 2em;">
+        <% if(semester == "s1"){ %>
+          <option value="s1" selected>S1</option>
+          <% } else{ %>  
+            <option value="s1">S1</option>
+          <% } %>
+          <% if(semester == "s2"){ %>
+            <option value="s2" selected>S2</option>
+            <% } else{ %>  
+              <option value="s2">S2</option>
+            <% } %>
+            <% if(semester == "s3"){ %>
+              <option value="s3" selected>S3</option>
+              <% } else{ %>  
+                <option value="s3">S3</option>
+              <% } %>
+              <% if(semester == "s4"){ %>
+                <option value="s4" selected>S4</option>
+                <% } else{ %>  
+                  <option value="s4">S4</option>
+                <% } %>
+                
+      </select>
+    </div>
+
+  </div>
+    <div style="padding-top: 3em;" class="d-flex flex-row align-items-end justify-content-center flex-wrap" style="width: 100%; margin: auto auto;">
+        
+        <% courses.forEach(function(course) { %>
+            <div class="card p2" style="width: 20%; height: 30em; margin-left: 1em;" >
+                <img src="/files/<%= course.img %>" class="card-img-top" alt="..." style="height: 55%;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= course.title %></h5>
+                  <small class="card-title" style="padding: 0; margin: 0; font-size: 1em;"><%= course.filiere %></small>
+                  <small class="card-title" style="padding: 0; margin: 0; font-size: 1em;"><%= course.semester %></small>
+                  <p class="card-text" style="height: 30%; overflow: hidden;"><%= course.description %></p>
+                  <% if(user.courses.includes(course.id) || user.role == 'prof'){ %>
+                    <a href="/generalcourse/<%= course.id %>" class="btn btn-primary">Enter</a>
+                  <% } else{ %>  
+                    <a href="/addcourse/<%= course.id %>" class="btn btn-primary">Suivre</a>
+                 <% } %>
+                 <a href="/coursedoc/<%= course.id %>" class="btn btn-primary">Consulter</a>
+                  
+                </div>
+            </div>
+        <% }); %> 
+    </div>
+</body>
+	
+
+
+
+
+
+
+
+
+<script src="jquery-3.3.1.min">
+
+</script>
+
+  <script>
+   function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+$( document ).ready(function() {
+  $("#filiere").on('change', (req, res) => {
+    window.location.href = "/courses/" + $("#filiere").val() + '/' + $("#semester").val() ;
+  })
+  $("#semester").on('change', (req, res) => {
+    window.location.href = "/courses/" + $("#filiere").val() + '/' + $("#semester").val() ;
+  })
+});
+</script>

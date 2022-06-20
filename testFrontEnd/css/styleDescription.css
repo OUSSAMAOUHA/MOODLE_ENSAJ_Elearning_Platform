@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6) ;
+    margin: 0;
+
+}
+a{
+    color: inherit;
+}
+.topbar{
+    background: #136c99;
+    color: #FFF;
+}
+.topbar-logo{
+    font-size: 24px;
+    line-height: 54px;
+    display: block;
+    text-align: center;
+    padding: 11px 0;
+}
+.topbar a{
+    text-decoration: none;  
+}
+.topbar-nav{
+    text-align: center;
+    padding-bottom: 16px;
+    line-height: 2;
+
+}
+.topbar-nav a{
+    display: inline-block;
+    margin: 0 12px;
+    color: rgba(56, 98, 122, 0.67);
+    transition: color .5s ;
+}
+.topbar-nav a:hover , .topbar-nav a.active{
+    color: white;
+}
+
+.three h1 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.5em;
+    padding-bottom: 15px;
+    position: relative;
+    margin-left: 50px;
+  }
+  .three h1:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 70px;
+    background-color: #136c99;
+  }
+  .three h1:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 1px;
+    width: 95%;
+    max-width: 300px;
+    background-color: #136c99;
+  }
+  
+@media only screen and (min-width: 520px){
+    .topbar{
+        display: flex; /*il place les choses a gauches */
+        justify-content: space-between ;
+        align-items: center;
+        height: 64px;
+        padding: 0 25px;
+    }
+    .topbar-logo, .topbar-nav{
+        padding: 0;
+    }
+    .topbar-nav a{
+        margin: 0 20px;
+    }
+}
+
+
+
+.container{
+    padding: 0 15px;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.site{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.sidebar{
+    display: block; 
+    flex-wrap: wrap;  
+    height: 250px;
+    margin-bottom: 20px;
+}
+.main{
+    height: 250px;
+    
+}
+.aside{
+    height: 250px;
+    
+}
+
+
+
+@media only screen and (min-width: 950px){
+    .site {
+        display: flex; 
+    }
+     
+    .sidebar{
+        width: 180px;
+        flex: none;
+    }
+    .main{
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 30px; 
+    }
+    .aside{
+        width: 310px;
+        flex: none;
+
+    }
+}
+
+.card{
+
+    border-radius: 3px;
+    margin-bottom: 15px;  /*pour separer les articles */
+    
+
+}
+.card-header{
+    padding: 10px;
+    position: relative;
+}
+
+.card-title{
+    font-weight: bold; /*rend le titre gras*/
+    color: black;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.card-time{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.38);
+}
+.card-body p:first-child{
+    margin-top: 0;
+}
+.card-body p:last-child{
+    margin-bottom: 0;
+}
+.card-body{
+    padding: 0px 10px; /*la petite espace gache du texte */
+}
+.imagepub{
+    width: 100%;
+    padding-left: -10px;
+    padding-right: -10px;
+    display: block; /*c'est seulement pour eviter l'espace cree sous l'image*/
+}
+.card-footer{
+    border-top: solid 1px #DBDBDB;
+    background: #FBFBFB;
+    display: flex;
+    padding: 0px 25px;
+    color: #BDBDBD;
+    font-size: 12px;
+    padding: 10px;
+    justify-content: space-between; /*pour avoir de l'espace entre les deux élements*/ 
+}
+.card-footer a{
+    text-decoration: none;
+
+}
+
+/*on utilise cette methode toujours pours les icones*/
+.card-like::before{ 
+    content:'' ;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: url(img/like.svg) center center / 20px 18px no-repeat;
+}
+.card-comment::before{ 
+    content:'' ;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: url(img/comment.svg) center center / 18px 17px no-repeat;
+
+}
+
+.sidebar-title{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
+
+.sidebar-title::after{  /*pour ajouter la ligne de sous de suggestions*/
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: black;
+    margin-top: 5px;
+
+}
+
+.chapitre{
+    margin: 14px 0;
+    display: flex;
+    text-decoration: none;  /*effacer soulignement des liens*/
+
+}
+.chapitre-avatar{
+    margin-right: 10px;
+}
+.chapitre-name{
+    font-size: 15px;
+    display: block;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;  /*effacer soulignement des liens*/
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.chapitre-connections{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.chapitre-add{
+    font-size: 12px;
+    color: black;
+    text-decoration: none;  /*effacer soulignement des liens*/
+    margin-top: 5px;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.chapitre-add::before{
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 13px;
+    background: url(img/link.svg) center center / 18px 13px no-repeat;
+    vertical-align: middle; /*mettre icon au milieu*/
+    margin-right: 5px;
+    
+
+}
+.comments-app1{
+
+    width: 800px;
+  }
+  
+  .comments-app1 h1{
+    color: #191919;
+    margin-bottom: 1.5em;
+    text-align: center;
+    text-shadow: 0 0 2px rgba(152, 152, 152, 1);
+  }
+  
+  .comment-form1 .comment-avatar{  }
+  
+  .comment-form1 .form{ margin-left: 100px; }
+  
+  .comment-form1 .form .form-row{ margin-bottom: 10px; }
+  .comment-form1 .form .form-row:last-child{ margin-bottom: 0; }
+  
+  .comment-form1 .form .input{
+    background-color: #fcfcfc;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    color: #555f77;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 5px 10px;
+    outline: none;
+    width: 600px;
+  
+    -webkit-transition: 350ms box-shadow;
+    -moz-transition: 350ms box-shadow;
+    -ms-transition: 350ms box-shadow;
+    -o-transition: 350ms box-shadow;
+    transition: 350ms box-shadow;
+  }
+  
+  .comment-form1 .form textarea.input{
+    height: 70px;
+    padding: 10px;
+  }
+  
+  .comment-form1 .form label{
+    color: #136c99;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .comment-form1 .form input[type=submit]{
+    background-color: #136c99;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin-left: 500px;
+    outline: none;
+    padding: 6px 15px;
+  
+    -webkit-transition: 350ms box-shadow;
+    -moz-transition: 350ms box-shadow;
+    -ms-transition: 350ms box-shadow;
+    -o-transition: 350ms box-shadow;
+    transition: 350ms box-shadow;
+  }
+  
+  .comment-form1 .form .input:focus,
+  .comment-form1 .form input[type=submit]:focus,
+  .comment-form1 .form input[type=submit]:hover{
+    box-shadow: 0 2px 6px rgba(121, 137, 148, .55);
+  }
+  
+  .comment-form1 .form.ng-submitted .input.ng-invalid,
+  .comment-form1 .form .input.ng-dirty.ng-invalid{
+    box-shadow: 0 2px 6px rgba(212, 47, 47, .55) !important;
+  }
+  
+  .comment-form1 .form .input.disabled {
+      background-color: #E8E8E8;
+  }
+  
+
+  .comment-form1,
+  .comment1{
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 0;
+  }
+  
+  .comment-form1 .comment-avatar1,
+  .comment1 .comment-avatar1{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    height: 80px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 80px;
+    margin-left: 30px;
+  }
+  
+  .comment-form1 .comment-avatar1 img,
+  .comment1 .comment-avatar1 img{
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  
+  .comment1 .comment-box1{
+    background-color: #fcfcfc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    margin-left: 100px;
+    min-height: 60px;
+    position: relative;
+    padding: 15px;
+    width: 600px;
+  }
+  
+  .comment1 .comment-box1:before,
+  .comment1 .comment-box1:after{
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #FCFCFC;
+    content: "";
+    left: -10px;
+    position: absolute;
+    top: 20px;
+  }
+  
+  .comment1 .comment-box1:before{
+    border-color: transparent rgba(0, 0, 0, .05);
+     top: 22px;
+  }
+  
+  .comment1 .comment-text1{
+    color: #555f77;
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .comment1 .comment-footer1{
+    color: #acb4c2;
+    font-size: 13px;
+  }
+  
+  .comment1 .comment-footer1:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .comment1 .comment-footer1 a{
+    color: #acb4c2;
+    text-decoration: none;
+  
+    -webkit-transition: 350ms color;
+    -moz-transition: 350ms color;
+    -ms-transition: 350ms color;
+    -o-transition: 350ms color;
+    transition: 350ms color;
+  }
+  
+  .comment .comment-footer a:hover{
+    color: #555f77;
+    text-decoration: underline;
+  }
+  
+  .comment .comment-info{
+    float: left;
+    width: 85%;
+  }
+  
+  .comment .comment-author{ }
+  .comment .comment-date{ }
+  
+  .comment .comment-date:before{
+    content: "|";
+    margin: 0 10px;
+  }
+  
+  .comment-actions{
+    float: left;
+    text-align: right;
+    width: 15%;
+  }
+  

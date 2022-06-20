@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+
+  background-color: #1164a3;
+}
+.wizard {
+    margin: 20px auto;
+    background: #fff;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+  
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+     background-color: #5bc0de;
+    border: 2px solid #5bc0de;
+    color: #fff;
+}
+.wizard li.active span.round-tab i{
+    color: #5bc0de;
+}
+
+
+
+.wizard .nav-tabs > li {
+    width: 20%;
+}
+
+
+
+
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+    .wizard .nav-tabs > li a:hover {
+        background: transparent;
+    }
+.wizard .nav-tabs > li a:active {
+        background: transparent;
+    }
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+.m-top{ 
+margin-top:25px;
+}
+@media( max-width : 585px ) {    
+}
+.ls, input, label{
+  letter-spacing:1px;
+}
+.color-teal{
+  color:#5bc0de;
+}
+.nav-tabs{
+  background-color:#fff;
+  border-bottom:0px;
+}
+.tab-content{
+  background-color:#fafafa;
+  color:#212121;
+}
+.bg-trans{
+  background-color:transparent;
+}
+.f-right{
+  float:right;
+}
+.icon-size{
+  font-size:24px;
+}
+.m-10{
+  margin-right:10px;
+}
+.p0{
+  padding:0px;
+}

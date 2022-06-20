@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ <link rel="stylesheet" href="/css/styleloggedin.css">
+ <link rel="stylesheet" href="/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/css/jquery-ui.css">
+ <link rel="stylesheet" href="/css/owl.carousel.min.css">
+ <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+ <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+ <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+ <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+ <link rel="stylesheet" href="/css/aos.css">
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="/css/styleChapitres.css">
+ <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+ <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+ 
+ 
+<style>
+    /* Dropdown Button */
+.dropbtn {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  position: relative;
+  padding: 1px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+</style>
+ <title>Moodle Ensaj</title>
+ </head>
+    <div id="sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 69.0625px;">
+        <header class="site-navbar py-4 js-sticky-header shrink site-navbar-target" role="banner">
+
+            <div class="container-fluid">
+              <div class="d-flex align-items-center">
+                <div class="site-logo mr-auto w-25"><a href="index.php">Moodle Ensaj</a></div>
+      
+                <div class="mx-auto text-center">
+                  <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                      <li><a href="/" class="nav-link" style="color: balck;">Accueil</a></li>
+                      <li><a href="/mycourses" class="nav-link1">Mes Cours</a></li>
+                      <li><a href="/courses" class="nav-link1">Cours</a></li>
+                      <% if(user.role == "prof"){ %>
+                        <li><a href="/createcourse" class="nav-link1">Ajouter Cours</a></li>
+                      <% } else{ %>  
+                        <li><a href="#teachers-section" class="nav-link1">Profs</a></li>
+                     <% } %>
+                    </ul>
+                  </nav>
+                </div>
+      
+                <div class="ml-auto w-25">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                            <div class="dropdown">
+                                <img onclick="myFunction()" src="/files/<%= user.img %>" class="dropbtn nav-link" width="90" style="border-radius: 50%;">
+                                <div id="myDropdown" class="dropdown-content">
+                                  <a href="/profile">Profile</a>
+                                  <a href="/logout">Logout</a>
+                                  <a href="#">Link 3</a>
+                                </div>
+                            </div>
+                        </ul>
+                    </nav>
+                    
+                </div>
+              </div>
+            </div>
+      
+          </header>
+    </div>
+    
+
+  <script>
+   function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>

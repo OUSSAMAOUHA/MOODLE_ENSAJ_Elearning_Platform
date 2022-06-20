@@ -1,0 +1,89 @@
+<%- include('header.ejs') %>
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Créer un cours</title>
+    <link  href="/css/stylecretaion.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form action="/createcourse"  method="POST" enctype="multipart/form-data"  >
+      <h1 style="padding-top: 2em;">Ajouter un cours</h1>
+      <div class="separation"></div>
+      <div class="corps-formulaire d-flex p-2 justify-content-center" style="width: 100%;">
+        <div style="min-width: 20em; padding-right: 2em;">
+          <div class="groupe">
+            <label>Titre de cours:</label>
+            <input type="text" name="title"/>
+            <i class="fas fa-ad"></i>
+          </div>
+          <div class="groupe">
+            <label>Langue utilitée:</label>
+            <select name="language" id="langue-select">
+                <option value="fr">Fr</option>
+                <option value="en">En</option>
+            </select>
+          </div>
+          <div class="groupe">
+            <label>Cathégorie:</label>
+            <select  id="pet-select" name="filiere">
+                <option value="cp">CP</option>
+                <option value="2ite">2ITE</option>
+                <option value="isic">ISIC</option>
+                <option value="gi">GI</option>
+                <option value="gee">GEE</option>
+                <option value="gc">GC</option>
+            </select>
+          </div>
+        </div>
+        <div class="gauche">
+          
+          
+          
+          <div class="groupe">
+            <label>niveau:</label>
+            <select name="semester" id="niveau-select">
+                <option value="s1">S1</option>
+                <option value="s2">S2</option>
+                <option value="s3">S3</option>
+                <option value="s4">S4</option>
+            </select>
+          </div>
+            <div class="groupe">
+                <label class="col-form-label col-md-3 col-sm-3 label-align">Type</label>
+                <div class="col-md-6 col-sm-6 ">
+                  <div id="kpi_goal" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="visibilite" value="public" class="join-btn"> &nbsp; Publique &nbsp;
+                    </label>
+                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                      <input type="radio" name="visibilite" value="private" class="join-btn"> Privé
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+
+          <div class="groupe">
+            <label>Image de cours:</label>
+            <input type="file" autocomplete="off" name="image"/>
+            <i class="fas fa-image"></i>
+          </div>
+        </div>
+
+        <div class="droite">
+          <div class="groupe">
+            <label>Description:</label>
+            <textarea name="description" placeholder="Saisissez ici..."></textarea>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="pied-formulaire" align="center">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </form>
+  </body>
+</html>

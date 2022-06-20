@@ -1,0 +1,237 @@
+<%- include('header.ejs') %>
+<style>
+    body{
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: #373240;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+  .emp-profile{
+      padding: 3%;
+      margin-top: 3%;
+      margin-bottom: 3%;
+      border-radius: 0.5rem;
+      background: #fff;
+  }
+  .profile-img{
+      text-align: center;
+  }
+  .profile-img img{
+      width: 70%;
+      height: 100%;
+  }
+  .profile-img .file {
+      position: relative;
+      overflow: hidden;
+      margin-top: -20%;
+      width: 70%;
+      border: none;
+      border-radius: 0;
+      font-size: 15px;
+      background: #212529b8;
+  }
+  .profile-img .file input {
+      position: absolute;
+      opacity: 0;
+      right: 0;
+      top: 0;
+  }
+  .profile-head h5{
+      color: #333;
+  }
+  .profile-head h6{
+      color: #0062cc;
+  }
+  .profile-edit-btn{
+      border: none;
+      border-radius: 1.5rem;
+      width: 70%;
+      padding: 2%;
+      font-weight: 600;
+      color: #6c757d;
+      cursor: pointer;
+  }
+  .proile-rating{
+      font-size: 12px;
+      color: #818182;
+      margin-top: 5%;
+  }
+  .proile-rating span{
+      color: #495057;
+      font-size: 15px;
+      font-weight: 600;
+  }
+  .profile-head .nav-tabs{
+      margin-bottom:5%;
+  }
+  .profile-head .nav-tabs .nav-link{
+      font-weight:600;
+      border: none;
+  }
+  .profile-head .nav-tabs .nav-link.active{
+      border: none;
+      border-bottom:2px solid #0062cc;
+  }
+  .profile-work{
+      padding: 14%;
+      margin-top: -15%;
+  }
+  .profile-work p{
+      font-size: 12px;
+      color: #818182;
+      font-weight: 600;
+      margin-top: 10%;
+  }
+  .profile-work a{
+      text-decoration: none;
+      color: #495057;
+      font-weight: 600;
+      font-size: 14px;
+  }
+  .profile-work ul{
+      list-style: none;
+  }
+  .profile-tab label{
+      font-weight: 600;
+  }
+  .profile-tab p{
+      font-weight: 600;
+      color: #0062cc;
+  }
+  </style>
+<body>
+      <div style="padding-top: 9em; padding-left: 5em;">
+        <div class="container emp-profile" style="border: 1px solid grey; margin-top: 0px; box-shadow: 5px 10px #888888;">
+            <form method="post" action="/update/profile" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                    <div class="profile-img">
+                            <img src="/files/<%=user.img%>" alt=""/>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                    userUid
+                                    </h5>
+                                    <h6>
+                                        Etudiant/Prof
+                                    </h6>
+                                    <p class="proile-rating">Cours suivie : <span><%= user.courses.length %></span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Informations personnelles:</a>
+                                </li>
+     
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">    
+                      <a href="profileedit.php" class="profile-edit-btn" name="btnAddMore" value="Edit Profile">Edit Profile</a>                 
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <input type="file" name="image" id="">
+                            <label style="padding-top: 10px;">Bio:</label>
+                            <input type="texta" name="bio" value="<%= user.username %>">
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Id:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><%= user.username %></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nom:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="username" value="<%= user.username %>">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="email" value="<%= user.email %>">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><%= user.role %></p>
+                                            </div>
+                                        </div>
+                                        <button type="submit">Submit</button>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </form>           
+        </div>
+      </div>
+      
+</body>

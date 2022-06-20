@@ -1,0 +1,80 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <select id="month">
+    <option value="">Select month</option>
+        <option value="1">janvier</option>
+        <option value="2">Fevrier</option>
+        <option value="3">Mars</option>
+        <option value="4">Avril</option>
+        <option value="5">Mai</option>
+        <option value="6">Juin</option>
+        <option value="7">Juillet</option>
+        <option value="8">Aout</option>
+        <option value="9">Septembre</option>
+        <option value="10">Octobre</option>
+        <option value="11">Novembre</option>
+        <option value="12">Decembre</option>
+</select>
+<p id="id2"></p>
+
+
+<body>
+
+
+
+<script>
+$("#month").change( async function() {
+    var somme = 0;
+    var l = document.getElementById("month").value;
+    console.log(l);
+            await $.ajax({
+
+                'url' : "data1.php",
+                'type' : 'GET',
+                'data': {
+                    'mois': l
+                },
+                'success' : function(data1) {              
+                    somme += somme + data1[0].somme
+                },
+                'error' : function(request,error)
+                {
+
+                }
+            });
+
+            await $.ajax({
+
+                'url' : "data2.php?mois=" + l,
+                'type' : 'GET',
+                'success' : function(data2) {   
+                    console.log(data2)           
+                    somme += somme + data2[0].somme
+                },
+                'error' : function(request,error)
+                {
+
+                }
+            });
+
+            await $.ajax({
+
+                'url' : "data3.php?mois=" + l,
+                'type' : 'GET',
+                'success' : function(data3) {              
+                    somme += somme + data3[0].somme
+                },
+                'error' : function(request,error)
+                {
+
+                }
+            });
+            document.getElementById("id2").innerHTML = somme;
+
+            
+
+        })
+</script>

@@ -22,11 +22,28 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    default: 'etudiant'
+  },
+  bio: {
+    type: String
+  },
   img:
     {
-        data: Buffer,
-        contentType: String
+        type: String,
+        default: 'avatar.jpg'
     },
+  ensajiste: {
+      type: String,
+      default: "non"
+  },
+  filiere: {
+    type: String,
+  },
+  semester: {
+    type: String,
+  },
   courses: [
       {type: mongoose.Schema.Types.ObjectId, ref: 'Course'}
   ]

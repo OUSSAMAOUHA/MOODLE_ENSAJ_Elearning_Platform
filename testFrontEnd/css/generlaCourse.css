@@ -1,0 +1,377 @@
+body{
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6) ;
+    margin: 0;
+
+}
+a{
+    color: inherit;
+}
+.topbar{
+    background: #136c99;
+    color: #FFF;
+}
+.topbar-logo{
+    font-size: 24px;
+    line-height: 54px;
+    display: block;
+    text-align: center;
+    padding: 11px 0;
+}
+.topbar a{
+    text-decoration: none;  
+}
+.topbar-nav{
+    text-align: center;
+    padding-bottom: 16px;
+    line-height: 2;
+
+}
+.topbar-nav a{
+    display: inline-block;
+    margin: 0 12px;
+    color: rgba(56, 98, 122, 0.67);
+    transition: color .5s ;
+}
+.topbar-nav a:hover , .topbar-nav a.active{
+    color: white;
+}
+
+.three h1 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.5em;
+    padding-bottom: 15px;
+    position: relative;
+    margin-left: 50px;
+  }
+  .three h1:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 70px;
+    background-color: #136c99;
+  }
+  .three h1:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 1px;
+    width: 95%;
+    max-width: 300px;
+    background-color: #136c99;
+  }
+  
+@media only screen and (min-width: 520px){
+    .topbar{
+        display: flex; /*il place les choses a gauches */
+        justify-content: space-between ;
+        align-items: center;
+        height: 64px;
+        padding: 0 25px;
+    }
+    .topbar-logo, .topbar-nav{
+        padding: 0;
+    }
+    .topbar-nav a{
+        margin: 0 20px;
+    }
+}
+
+
+
+.container{
+    padding: 0 15px;
+    max-width: 1200px;
+    margin-left: 90px;
+    margin-right: 30px;
+    
+}
+.site{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.sidebar{
+    display: block; 
+    flex-wrap: wrap;  
+    height: 250px;
+    margin-bottom: 20px;
+}
+.main{
+    height: 250px;
+    
+}
+.aside{
+    height: 250px;
+    
+}
+
+
+
+@media only screen and (min-width: 950px){
+    .site {
+        display: flex; 
+    }
+     
+    .sidebar{
+        width: 180px;
+        flex: none;
+    }
+    .main{
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 30px; 
+    }
+    .aside{
+        width: 310px;
+        flex: none;
+
+    }
+}
+
+.card{
+
+    border-radius: 3px;
+    margin-bottom: 15px;  /*pour separer les articles */
+    
+
+}
+.card-header{
+    padding: 30px;
+    position: relative;
+}
+
+.image_cours{
+  width: 250px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.card-title{
+    font-weight: bold; /*rend le titre gras*/
+    color: black;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.card-time{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.38);
+}
+.card-body p:first-child{
+    margin-top: 0;
+}
+.card-body p:last-child{
+    margin-bottom: 0;
+}
+.card-body{
+    padding: 0px 10px; /*la petite espace gache du texte */
+}
+.imagepub{
+    width: 100%;
+    padding-left: -10px;
+    padding-right: -10px;
+    display: block; /*c'est seulement pour eviter l'espace cree sous l'image*/
+}
+.card-footer{
+    border-top: solid 1px #DBDBDB;
+    background: #FBFBFB;
+    display: flex;
+    padding: 0px 25px;
+    color: #BDBDBD;
+    font-size: 12px;
+    padding: 10px;
+    justify-content: space-between; /*pour avoir de l'espace entre les deux Ã©lements*/ 
+}
+.card-footer a{
+    text-decoration: none;
+
+}
+
+/*on utilise cette methode toujours pours les icones*/
+.card-like::before{ 
+    content:'' ;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: url(img/like.svg) center center / 20px 18px no-repeat;
+}
+.card-comment::before{ 
+    content:'' ;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: url(img/comment.svg) center center / 18px 17px no-repeat;
+
+}
+
+.sidebar-title{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
+
+.sidebar-title::after{  /*pour ajouter la ligne de sous de suggestions*/
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: black;
+    margin-top: 5px;
+
+}
+
+.prof{
+    text-decoration: none;  /*effacer soulignement des liens*/
+
+}
+
+.prof-name{
+    font-size: 15px;
+    display: block;
+    font-weight: bold;
+    color: rgb(48, 48, 48);
+    text-decoration: none;  /*effacer soulignement des liens*/
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.prof-avatar{
+    width: 80px;height: 80px;
+    border-radius: 100%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+
+
+#yatra-faq-left {
+  width: 100%;
+  float: left;
+}
+
+.collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+#yatra-faq-right {
+  width: 65%;
+  float: left;
+}
+
+.accordion .items-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+.accordion .items-list .item {
+  border-top: 1px solid #dfdfdf;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+.accordion .items-list .item .item-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+  padding: 13px 0;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  
+}
+.accordion .items-list .item .collapse-data {
+  margin: 10px 0;
+}
+.accordion .items-list .item::before {
+  position: absolute;
+  top: 16px;
+  right: 10px;
+  font-style: normal;
+  transform: rotate(90deg);
+  cursor: pointer;
+  font-size: 16px;
+  content: "â¯";
+  color: #bfbfbf;
+}
+.accordion .items-list .item.in::before {
+  transform: rotate(-90deg);
+}
+
+.panel .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+
+}
+.panel .items-list .item {
+  cursor: pointer;
+  position: relative;
+}
+.panel .items-list .item .item-title {
+  margin: 0;
+  padding: 10px 10px 10px;
+  position: relative;
+}
+.panel .items-list .item .item-title.selected {
+  background: #136c99;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+.panel .items-list .item .item-title.selected::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-style: normal;
+  cursor: pointer;
+  font-size: 16px;
+  content: "â¯";
+  color: #bfbfbf;
+}
+.panel .items-list .item .item-title:hover::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-style: normal;
+  cursor: pointer;
+  font-size: 16px;
+  content: "â¯";
+  color: #bfbfbf;
+}
+.panel .items-list .item .item-title.down::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-style: normal;
+  cursor: pointer;
+  font-size: 16px;
+  content: "â¯";
+  color: #bfbfbf;
+  transform: rotate(90deg);
+}
+.panel .items-list .item-level-1 {
+  border-top: solid 1px #dfdfdf;
+}
+.panel .items-list .item-level-1:last-child {
+  border-bottom: solid 1px #dfdfdf;
+}
+.panel .items-list .item-level-2 {
+  padding-left: 25px;
+}

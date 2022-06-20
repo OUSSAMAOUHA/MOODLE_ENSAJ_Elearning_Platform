@@ -1,0 +1,64 @@
+<%- include('header.ejs') %>
+
+<body>
+<!-- partial:index.partial.html -->
+<div class=" d-flex justify-content-center" style="padding-top: 10em; width: 100%; margin: 0; text-align: center;">
+  <div>
+    <div class="row" style="width: 80%; text-align: center;">
+      <section>
+          <div class="wizard">
+              <div class="wizard-inner">
+  
+      <form role="form" enctype="multipart/form-data" action="/uploadvid/<%= chaptre.id %>/<%= course %>" method="POST">
+                  <div class="tab-content">
+                      <div class="tab-pane active" role="tabpanel" id="step1">
+        <div class="col-md-12">
+                                <h1 class="ls  text-center">Ajouter document/vidéo</h1>
+                        </div>       
+    <div class="col-md-12">                 
+      <div class="form-group">
+        <label for="campaignName">Titre de partie:</label>
+        <input type="text" class="form-control" id="campaignName" name="title">
+      </div>
+      <div class="form-group">
+          <label for="campaignName">Lien vidéo:</label>
+          <input type="text" class="form-control" id="campaignName" name="name">
+      </div>
+      <div class="col-md-12 p0">
+        <div class="col-md-11 p0">
+          <div class="form-group">
+              
+                </div> 
+               </div>
+    
+    
+       </div>
+           <div class="col-md-12">  
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" rows="5" cols="22" name="description"></textarea>
+             </div></div>
+                       
+              <div class="col-md-12">
+                  <button type="submit" class="f-right btn btn-primary next-step">Continue</button>
+                 <button onclick="location.reload();" type="button" class="f-right m-10 btn btn-danger">Cancel</button>
+                         <br/><br/><br/><br/> </div>
+                      </div>
+                     
+                      <div class="clearfix"></div>
+                  </div>
+              </form>
+          </div>
+      </section>
+     </div>
+  </div>
+	
+</div>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'>
+
+</script><script  src="js/scriptvidpdf.js"></script>
+
+</body>
+</html>
